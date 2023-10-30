@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Practice 2</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        p {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Practice 2!</h2>
+    <p id="text">This is dummy text used for practice 2!</p>
+    <input type="text" id="colorInput" placeholder="Enter RGB color (e.g., 'rgb(255, 0, 0)')" oninput="updateColor()">
+    <input type="range" id="borderWidth" min="1" max="10" step="1" value="2" oninput="updateBorderWidth()">
+    
+    <script>
+        function updateColor() {
+            const text = document.getElementById("text");
+            const colorInput = document.getElementById("colorInput").value;
+            text.style.color = colorInput;
+            text.style.borderColor = colorInput;
+        }
+
+        function updateBorderWidth() {
+            const text = document.getElementById("text");
+            const borderWidth = document.getElementById("borderWidth").value;
+            text.style.borderWidth = borderWidth + "px";
+        }
+    </script>
+</body>
+</html>
+

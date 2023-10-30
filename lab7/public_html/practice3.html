@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Practice 3</title>
+</head>
+<body>
+    <h2>Welcome to Practice 3!</h2>
+    Welcome, User1! <br>
+    <form action="#" onsubmit="checkPassword(event);">
+        Enter Password (8 character minimum): <input type="password" name="password1" id="pass1" minlength="8" required><br>
+        Re-Enter Password: <input type="password" name="password2" id="pass2" minlength="8" required><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function checkPassword(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            const pass1 = document.getElementById("pass1").value;
+            const pass2 = document.getElementById("pass2").value;
+
+            if (pass1.length < 8 || pass2.length < 8) {
+                alert("Password must be at least eight characters long.");
+            } else if (pass1 !== pass2) {
+                alert("Passwords do not match. Please re-enter them.");
+            } else {
+                alert("Passwords match!");
+            }
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Practice 4</title>
+    <style>
+        table {
+            width: 10%;
+            margin: 0 auto;
+        }
+
+        th, td {
+            width: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Multiplication Table</h2>
+    <form method="GET">
+        <h3>
+            Enter a number: <input type="text" name="number">
+            <input type="submit" value="Generate Table">
+        </h3>
+    </form>
+        <table>
+                <?php
+                if (isset($_GET['number'])) {
+                    $number = (int)$_GET['number'];
+
+                    echo '<div class="center-table">';
+                    echo '<table>';
+
+                    for ($i = 0; $i <= $number; $i++) {
+                        echo "<tr>";
+                        for ($j = 0; $j <= $number; $j++) {
+                            if ($i == 0 && $j == 0) {
+                                echo "<th>&times;</th>"; // Top-left cell.
+                            } elseif ($i == 0) {
+                                echo "<th>$j</th>"; // Row indexes.
+                            } elseif ($j == 0) {
+                                echo "<th>$i</th>"; // Column indexes.
+                            } else {
+                                $result = $i * $j;
+                                echo "<td>" . str_pad($result, 2, ' ', STR_PAD_LEFT) . "</td>"; // Fixed-width cells.
+                            }
+                        }
+                        echo "</tr>";
+                    }
+
+                    echo '</table>';
+                    echo '</div>';
+                }
+                ?>
+        </table>
+</body>
+</html>
+
+
